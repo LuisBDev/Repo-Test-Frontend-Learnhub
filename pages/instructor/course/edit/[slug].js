@@ -1,14 +1,13 @@
-import { useState, useEffect } from "react"; // Importa las funciones useState y useEffect desde la biblioteca "react"
-import axios from "axios"; // Importa el módulo axios para realizar solicitudes HTTP
-import InstructorRoute from "../../../../components/routes/InstructorRoute"; // Importa el componente InstructorRoute desde la ruta especificada
-import CourseCreateForm from "../../../../components/forms/CourseCreateForm"; // Importa el componente CourseCreateForm desde la ruta especificada
-import Resizer from "react-image-file-resizer"; // Importa el componente Resizer desde la biblioteca "react-image-file-resizer"
-import { toast } from "react-toastify"; // Importa el módulo toast desde la biblioteca "react-toastify"
-import { useRouter } from "next/router"; // Importa la función useRouter desde la biblioteca "next/router"
-import { List, Avatar, Modal } from "antd"; // Importa los componentes List, Avatar y Modal desde la biblioteca "antd"
-import { DeleteOutlined } from "@ant-design/icons"; // Importa el icono DeleteOutlined desde la biblioteca "@ant-design/icons"
-import UpdateLessonForm from "../../../../components/forms/UpdateLessonForm"; // Importa el componente UpdateLessonForm desde la ruta especificada
-
+import { useState, useEffect } from "react";
+import axios from "axios";
+import InstructorRoute from "../../../../components/routes/InstructorRoute";
+import CourseCreateForm from "../../../../components/forms/CourseCreateForm";
+import Resizer from "react-image-file-resizer";
+import { toast } from "react-toastify";
+import { useRouter } from "next/router";
+import { List, Avatar, Modal } from "antd";
+import { DeleteOutlined } from "@ant-design/icons";
+import UpdateLessonForm from "../../../../components/forms/UpdateLessonForm";
 
 const { Item } = List;
 

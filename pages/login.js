@@ -1,11 +1,10 @@
-import React, { useState, useContext, useEffect } from "react"; // Importamos React, useState, useContext y useEffect desde "react"
-import axios from "axios"; // Importamos axios para hacer peticiones HTTP
-import { toast } from "react-toastify"; // Importamos toast de react-toastify para mostrar notificaciones
-import { SyncOutlined } from "@ant-design/icons"; // Importamos el ícono SyncOutlined de ant-design/icons
-import Link from "next/link"; // Importamos Link de next/link para navegar entre páginas
-import { Context } from "../context"; // Importamos el Context desde "../context"
-import { useRouter } from "next/router"; // Importamos useRouter de next/router para obtener el objeto router
-
+import React, { useState, useContext, useEffect } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { SyncOutlined } from "@ant-design/icons";
+import Link from "next/link";
+import { Context } from "../context";
+import { useRouter } from "next/router";
 
 // Función reutilizable para los elementos de formulario
 const FormInput = ({ type, value, onChange, placeholder, required }) => (

@@ -1,21 +1,10 @@
-// Importar los componentes necesarios desde el paquete "antd"
 import { Card, Badge } from "antd";
-
-// Importar el componente "Link" desde el paquete "next/link"
 import Link from "next/link";
-
-// Importar la función "currencyFormatter" desde el archivo "../../utils/helpers"
 import { currencyFormatter } from "../../utils/helpers";
 
 const CourseCard = ({ course }) => {
-    // Desestructuración de la variable 'course' para obtener propiedades específicas
     const { name, instructor, price, slug, paid, category, image } = course;
-
-    // Variable 'imageUrl' para almacenar la ubicación de la imagen del curso
-    // Si la propiedad 'image' existe, se asigna su ubicación (image.Location)
-    // En caso contrario, se asigna una ubicación predeterminada ("/course.png")
     const imageUrl = image ? image.Location : "/course.png";
-
 
     return (
         <Link href={`/course/${slug}`}>

@@ -1,99 +1,178 @@
-import { useState, useEffect, useContext } from "react"; // Importación de los hooks useState, useEffect y useContext desde React
-import axios from "axios"; // Importación del módulo axios para hacer peticiones HTTP
-import { useRouter } from "next/router"; // Importación del hook useRouter de Next.js para acceder al enrutador
-import SingleCourseJumbotron from "../../components/cards/SingleCourseJumbotron"; // Importación del componente SingleCourseJumbotron desde el directorio de componentes
-import PreviewModal from "../../components/modal/PreviewModal"; // Importación del componente PreviewModal desde el directorio de componentes
-import SingleCourseLessons from "../../components/cards/SingleCourseLessons"; // Importación del componente SingleCourseLessons desde el directorio de componentes
-import { Context } from "../../context"; // Importación del contexto desde el directorio context
-import { toast } from "react-toastify"; // Importación de la función toast de la librería react-toastify
 
+// Importing the necessary React hooks for managing state, performing side effects, and accessing the application context.
+import { useState, useEffect, useContext } from "react";
+
+// Importing the axios library for making HTTP requests to the server.
+import axios from "axios";
+
+// Importing the Next.js router for navigating between pages.
+import { useRouter } from "next/router";
+
+// Importing the SingleCourseJumbotron component for displaying the jumbotron of a single course.
+import SingleCourseJumbotron from "../../components/cards/SingleCourseJumbotron";
+
+// Importing the PreviewModal component for displaying a modal with a preview of a course.
+import PreviewModal from "../../components/modal/PreviewModal";
+
+// Importing the SingleCourseLessons component for displaying the lessons of a single course.
+import SingleCourseLessons from "../../components/cards/SingleCourseLessons";
+
+// Importing the Context from the application context file.
+import { Context } from "../../context";
+
+// Importing the toast notification library for displaying informative messages to the user.
+import { toast } from "react-toastify";
 
 const SingleCourse = ({ course }) => {
-  // Definir los estados iniciales utilizando el hook useState
-  const [showModal, setShowModal] = useState(false); // Estado para controlar la visualización del modal
-  const [preview, setPreview] = useState(""); // Estado para almacenar una vista previa
-  const [loading, setLoading] = useState(false); // Estado para controlar el estado de carga
-  const [enrolled, setEnrolled] = useState({}); // Estado para almacenar datos de inscripción
-  const [showPaymentForm, setShowPaymentForm] = useState(false); // Estado para controlar la visualización del formulario de pago
-  const [cardNumber, setCardNumber] = useState(""); // Estado para almacenar el número de tarjeta
-  const [expiryMonth, setExpiryMonth] = useState(""); // Estado para almacenar el mes de vencimiento
-  const [expiryYear, setExpiryYear] = useState(""); // Estado para almacenar el año de vencimiento
-  const [cvv, setCVV] = useState(""); // Estado para almacenar el CVV
-  const currentYear = new Date().getFullYear(); // Obtener el año actual
 
-  // Obtener el estado del usuario desde el contexto
+  // Defining state variables for managing the visibility of the modal.
+  const [showModal, setShowModal] = useState(false);
+
+  // Defining state variables for storing the preview information.
+  const [preview, setPreview] = useState("");
+
+  // Defining state variables for managing the loading state.
+  const [loading, setLoading] = useState(false);
+
+  // Defining state variables for storing enrolled course data.
+  const [enrolled, setEnrolled] = useState({});
+
+  // Defining state variables for managing the visibility of the payment form.
+  const [showPaymentForm, setShowPaymentForm] = useState(false);
+
+  // Defining state variables for storing credit card information.
+  const [cardNumber, setCardNumber] = useState("");
+  const [expiryMonth, setExpiryMonth] = useState("");
+  const [expiryYear, setExpiryYear] = useState("");
+  const [cvv, setCVV] = useState("");
+
+  // Getting the current year.
+  const currentYear = new Date().getFullYear();
+
+  // Accessing the user state from the application context.
   const { state: { user } } = useContext(Context);
-  // Obtener el enrutador de Next.js
+
+  // Accessing the Next.js router.
   const router = useRouter();
 
+  // Defining an effect hook that runs when the user or course changes.
   useEffect(() => {
+    // Checking if the user and course are available.
     if (user && course) {
+      // Invoking the function to check enrollment.
       checkEnrollment();
     }
   }, [user, course]);
 
   // Verificar si el usuario está inscrito en el curso
   const checkEnrollment = async () => {
+
+    // Sending a GET request to check the enrollment status of the course.
     const { data } = await axios.get(`/api/check-enrollment/${course._id}`);
+
+    // Logging the enrollment verification data to the console.
     console.log("VERIFICAR INSCRIPCIÓN", data);
+
+    // Updating the enrolled state variable with the enrollment data.
     setEnrolled(data);
   };
 
   // Manejar la inscripción pagada
   const handlePaidEnrollment = async (e) => {
+    // Preventing the default form submission behavior.
     e.preventDefault();
+
     try {
+      // Checking if the user is logged in.
       if (!user) {
+        // Redirecting to the login page.
         router.push("/login");
         return;
       }
 
+      // Checking if the user is already enrolled in the course.
       if (enrolled.status) {
-        router.push(`/user/course/${enrolled.course.slug}`);
+        // Redirecting to the enrolled course page.
+        router.push(`/user/course/${data.course.slug}`);
         return;
       }
 
+      // Checking if the payment form is visible.
       if (showPaymentForm) {
+        // Setting the loading state to true.
         setLoading(true);
+        // Sending a POST request to initiate paid enrollment.
         const { data } = await axios.post(`/api/paid-enrollment/${course._id}`);
+
+        // Displaying a toast message with the response data message.
         toast(data.message);
+
+        // Setting the loading state to false.
         setLoading(false);
+
+        // Redirecting to the enrolled course page.
         router.push(`/user/course/${data.course.slug}`);
       } else {
+        // Showing the payment form.
         setShowPaymentForm(true);
       }
     } catch (err) {
+      // Displaying an error toast message for paid enrollment.
       toast("Error en la inscripción pagada, inténtalo de nuevo.");
+
+      // Logging the error to the console.
       console.log(err);
+
+      // Setting the loading state to false.
       setLoading(false);
     }
   };
 
   // Manejar la inscripción gratuita
-  const handleFreeEnrollment = async (e) => {
+  const handleFreeEnrollment = async (e) => {// Preventing the default form submission behavior.
     e.preventDefault();
+
     try {
+      // Checking if the user is logged in.
       if (!user) {
+        // Redirecting to the login page.
         router.push("/login");
         return;
       }
 
+      // Checking if the user is already enrolled in the course.
       if (enrolled.status) {
-        router.push(`/user/course/${enrolled.course.slug}`);
+        // Redirecting to the enrolled course page.
+        router.push(`/user/course / ${enrolled.course.slug}`);
         return;
       }
 
+      // Setting the loading state to true.
       setLoading(true);
+
+      // Sending a POST request to initiate free enrollment.
       const { data } = await axios.post(`/api/free-enrollment/${course._id}`);
+
+      // Displaying a toast message with the response data message.
       toast(data.message);
+
+      // Setting the loading state to false.
       setLoading(false);
+
+      // Redirecting to the enrolled course page.
       router.push(`/user/course/${data.course.slug}`);
     } catch (err) {
+      // Displaying an error toast message for enrollment.
       toast("Error en la inscripción, inténtalo de nuevo.");
+
+      // Logging the error to the console.
       console.log(err);
+
+      // Setting the loading state to false.
       setLoading(false);
     }
   };
+
 
   // Generar opciones de años a partir del año actual hasta los próximos 10 años
   const yearOptions = Array.from({ length: 10 }, (_, index) => {

@@ -1,10 +1,10 @@
-import { useState } from "react"; // Importa el hook useState de React
-import axios from "axios"; // Importa axios para hacer solicitudes HTTP
-import InstructorRoute from "../../../components/routes/InstructorRoute"; // Importa un componente de ruta para el instructor
-import CourseCreateForm from "../../../components/forms/CourseCreateForm"; // Importa un formulario para crear un curso
-import Resizer from "react-image-file-resizer"; // Importa una librería para redimensionar imágenes de archivo
-import { toast } from "react-toastify"; // Importa la librería de notificaciones toast
-import { useRouter } from "next/router"; // Importa el hook useRouter de Next.js para obtener el enrutador
+import { useState } from "react";
+import axios from "axios";
+import InstructorRoute from "../../../components/routes/InstructorRoute";
+import CourseCreateForm from "../../../components/forms/CourseCreateForm";
+import Resizer from "react-image-file-resizer";
+import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 
 const CourseCreate = () => {
     const [values, setValues] = useState({
