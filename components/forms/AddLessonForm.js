@@ -4,7 +4,19 @@ import { Button, Progress, Tooltip } from "antd";
 // Importamos el componente CloseCircleFilled desde la librería "@ant-design/icons"
 import { CloseCircleFilled } from "@ant-design/icons";
 
+// Definiendo la función handleInputChange que se ejecuta cuando se produce un cambio en el input.
+// Toma dos argumentos: el evento (e) y el campo (field).
+// Utiliza la función setValues para actualizar el estado de los valores.
+// Utiliza el operador spread (...) para copiar los valores actuales y luego sobrescribe el campo especificado con el valor del evento.
+// El evento.target.value contiene el valor actualizado del campo de entrada.
 
+// Renderizando el contenido del componente AddLessonForm.
+// Incluye un formulario con campos de entrada para el título y el contenido de la lección.
+// El valor de cada campo está vinculado al estado "values" y se actualiza utilizando la función handleInputChange.
+// El botón de carga de video está asociado a la función handleVideo para manejar la selección de video.
+// El botón de eliminación de video utiliza la función handleVideoRemove para eliminar el video seleccionado.
+// El progreso de carga del video se muestra utilizando el componente Progress.
+// El botón "Guardar" utiliza la función handleAddLesson para guardar la lección.
 const AddLessonForm = ({
     values, // Valores de las lecciones (pueden ser propiedades como título, descripción, etc.)
     setValues, // Función para establecer los valores de las lecciones
@@ -22,7 +34,19 @@ const AddLessonForm = ({
         // Se utiliza el operador spread (...) para copiar los valores actuales y luego se sobrescribe el campo especificado con el valor del evento.
         // El evento.target.value contiene el valor actualizado del campo de entrada.
     };
+    // Definiendo la función handleInputChange que se ejecuta cuando se produce un cambio en el input.
+    // Toma dos argumentos: el evento (e) y el campo (field).
+    // Utiliza la función setValues para actualizar el estado de los valores.
+    // Utiliza el operador spread (...) para copiar los valores actuales y luego sobrescribe el campo especificado con el valor del evento.
+    // El evento.target.value contiene el valor actualizado del campo de entrada.
 
+    // Renderizando el contenido del componente AddLessonForm.
+    // Incluye un formulario con campos de entrada para el título y el contenido de la lección.
+    // El valor de cada campo está vinculado al estado "values" y se actualiza utilizando la función handleInputChange.
+    // El botón de carga de video está asociado a la función handleVideo para manejar la selección de video.
+    // El botón de eliminación de video utiliza la función handleVideoRemove para eliminar el video seleccionado.
+    // El progreso de carga del video se muestra utilizando el componente Progress.
+    // El botón "Guardar" utiliza la función handleAddLesson para guardar la lección.
     return (
         <div className="container pt-3">
             <form onSubmit={handleAddLesson}>
@@ -90,5 +114,17 @@ const AddLessonForm = ({
         </div>
     );
 };
+// Definiendo la función handleInputChange que se ejecuta cuando se produce un cambio en el input.
+// Toma dos argumentos: el evento (e) y el campo (field).
+// Utiliza la función setValues para actualizar el estado de los valores.
+// Utiliza el operador spread (...) para copiar los valores actuales y luego sobrescribe el campo especificado con el valor del evento.
+// El evento.target.value contiene el valor actualizado del campo de entrada.
 
+// Renderizando el contenido del componente AddLessonForm.
+// Incluye un formulario con campos de entrada para el título y el contenido de la lección.
+// El valor de cada campo está vinculado al estado "values" y se actualiza utilizando la función handleInputChange.
+// El botón de carga de video está asociado a la función handleVideo para manejar la selección de video.
+// El botón de eliminación de video utiliza la función handleVideoRemove para eliminar el video seleccionado.
+// El progreso de carga del video se muestra utilizando el componente Progress.
+// El botón "Guardar" utiliza la función handleAddLesson para guardar la lección.
 export default AddLessonForm;
