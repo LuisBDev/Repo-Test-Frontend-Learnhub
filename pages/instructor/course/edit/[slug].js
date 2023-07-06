@@ -63,7 +63,6 @@ const CourseEdit = () => {
     // router
     const router = useRouter();
     const { slug } = router.query;
-
     // Utilizando el hook useState para crear una variable de estado llamada "image".
     // "image" se inicializa como un objeto vacío para almacenar información sobre la imagen seleccionada.
 
@@ -170,7 +169,30 @@ const CourseEdit = () => {
             toast("Error en la carga de la imagen. Inténtalo más tarde.");
         }
     };
+    // Definiendo una función asincrónica llamada "loadCourse".
+    // Esta función se utiliza para cargar los datos del curso desde el servidor.
+    // Realiza una solicitud GET a la ruta "/api/course/${slug}" para obtener los datos del curso.
+    // Al recibir la respuesta, se muestra en la consola para fines de depuración.
+    // Si los datos existen, se establecen en el estado "values" mediante la función setValues.
+    // Si los datos incluyen una imagen, se establece en el estado "image" mediante la función setImage.
 
+    // Definiendo una función llamada "handleChange".
+    // Esta función se utiliza para manejar los cambios en los campos de entrada del formulario.
+    // Utiliza el operador spread para crear una copia del estado "values" y actualiza el valor correspondiente según el nombre del campo de entrada.
+
+    // Definiendo una función llamada "handleImage".
+    // Esta función se utiliza para manejar la selección de una imagen para cargar.
+    // Obtiene el archivo de imagen seleccionado y lo almacena en la variable "file".
+    // Crea una URL de vista previa de la imagen utilizando la función window.URL.createObjectURL y la establece en el estado "preview".
+    // Establece el nombre del archivo en el estado "uploadButtonText".
+    // Actualiza el estado "values" para indicar que se está cargando la imagen.
+    // Utiliza la biblioteca de redimensionamiento Resizer para redimensionar la imagen seleccionada.
+    // Realiza una solicitud POST a la ruta "/api/course/upload-image" con la imagen redimensionada.
+    // Al recibir la respuesta, muestra la información en la consola y establece la imagen en el estado "image".
+    // Finalmente, actualiza el estado "values" para indicar que la carga ha finalizado.
+
+    // La función loadCourse se llama cuando se carga el componente para obtener los datos del curso.
+    // Las funciones handleChange y handleImage se utilizan para manejar los cambios en los campos de entrada y la carga de imágenes, respectivamente.
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -185,11 +207,57 @@ const CourseEdit = () => {
             toast(err.response.data);
         }
     };
+    // Definiendo una función asincrónica llamada "loadCourse".
+    // Esta función se utiliza para cargar los datos del curso desde el servidor.
+    // Realiza una solicitud GET a la ruta "/api/course/${slug}" para obtener los datos del curso.
+    // Al recibir la respuesta, se muestra en la consola para fines de depuración.
+    // Si los datos existen, se establecen en el estado "values" mediante la función setValues.
+    // Si los datos incluyen una imagen, se establece en el estado "image" mediante la función setImage.
 
+    // Definiendo una función llamada "handleChange".
+    // Esta función se utiliza para manejar los cambios en los campos de entrada del formulario.
+    // Utiliza el operador spread para crear una copia del estado "values" y actualiza el valor correspondiente según el nombre del campo de entrada.
+
+    // Definiendo una función llamada "handleImage".
+    // Esta función se utiliza para manejar la selección de una imagen para cargar.
+    // Obtiene el archivo de imagen seleccionado y lo almacena en la variable "file".
+    // Crea una URL de vista previa de la imagen utilizando la función window.URL.createObjectURL y la establece en el estado "preview".
+    // Establece el nombre del archivo en el estado "uploadButtonText".
+    // Actualiza el estado "values" para indicar que se está cargando la imagen.
+    // Utiliza la biblioteca de redimensionamiento Resizer para redimensionar la imagen seleccionada.
+    // Realiza una solicitud POST a la ruta "/api/course/upload-image" con la imagen redimensionada.
+    // Al recibir la respuesta, muestra la información en la consola y establece la imagen en el estado "image".
+    // Finalmente, actualiza el estado "values" para indicar que la carga ha finalizado.
+
+    // La función loadCourse se llama cuando se carga el componente para obtener los datos del curso.
+    // Las funciones handleChange y handleImage se utilizan para manejar los cambios en los campos de entrada y la carga de imágenes, respectivamente.
     const handleDrag = (e, index) => {
         e.dataTransfer.setData("itemIndex", index);
     };
+    // Definiendo una función asincrónica llamada "loadCourse".
+    // Esta función se utiliza para cargar los datos del curso desde el servidor.
+    // Realiza una solicitud GET a la ruta "/api/course/${slug}" para obtener los datos del curso.
+    // Al recibir la respuesta, se muestra en la consola para fines de depuración.
+    // Si los datos existen, se establecen en el estado "values" mediante la función setValues.
+    // Si los datos incluyen una imagen, se establece en el estado "image" mediante la función setImage.
 
+    // Definiendo una función llamada "handleChange".
+    // Esta función se utiliza para manejar los cambios en los campos de entrada del formulario.
+    // Utiliza el operador spread para crear una copia del estado "values" y actualiza el valor correspondiente según el nombre del campo de entrada.
+
+    // Definiendo una función llamada "handleImage".
+    // Esta función se utiliza para manejar la selección de una imagen para cargar.
+    // Obtiene el archivo de imagen seleccionado y lo almacena en la variable "file".
+    // Crea una URL de vista previa de la imagen utilizando la función window.URL.createObjectURL y la establece en el estado "preview".
+    // Establece el nombre del archivo en el estado "uploadButtonText".
+    // Actualiza el estado "values" para indicar que se está cargando la imagen.
+    // Utiliza la biblioteca de redimensionamiento Resizer para redimensionar la imagen seleccionada.
+    // Realiza una solicitud POST a la ruta "/api/course/upload-image" con la imagen redimensionada.
+    // Al recibir la respuesta, muestra la información en la consola y establece la imagen en el estado "image".
+    // Finalmente, actualiza el estado "values" para indicar que la carga ha finalizado.
+
+    // La función loadCourse se llama cuando se carga el componente para obtener los datos del curso.
+    // Las funciones handleChange y handleImage se utilizan para manejar los cambios en los campos de entrada y la carga de imágenes, respectivamente.
     const handleDrop = async (e, index) => {
         const movingItemIndex = e.dataTransfer.getData("itemIndex");
         const targetItemIndex = index;
@@ -204,7 +272,30 @@ const CourseEdit = () => {
 
         toast("Lecciones reorganizadas exitosamente");
     };
+    // Definiendo una función asincrónica llamada "loadCourse".
+    // Esta función se utiliza para cargar los datos del curso desde el servidor.
+    // Realiza una solicitud GET a la ruta "/api/course/${slug}" para obtener los datos del curso.
+    // Al recibir la respuesta, se muestra en la consola para fines de depuración.
+    // Si los datos existen, se establecen en el estado "values" mediante la función setValues.
+    // Si los datos incluyen una imagen, se establece en el estado "image" mediante la función setImage.
 
+    // Definiendo una función llamada "handleChange".
+    // Esta función se utiliza para manejar los cambios en los campos de entrada del formulario.
+    // Utiliza el operador spread para crear una copia del estado "values" y actualiza el valor correspondiente según el nombre del campo de entrada.
+
+    // Definiendo una función llamada "handleImage".
+    // Esta función se utiliza para manejar la selección de una imagen para cargar.
+    // Obtiene el archivo de imagen seleccionado y lo almacena en la variable "file".
+    // Crea una URL de vista previa de la imagen utilizando la función window.URL.createObjectURL y la establece en el estado "preview".
+    // Establece el nombre del archivo en el estado "uploadButtonText".
+    // Actualiza el estado "values" para indicar que se está cargando la imagen.
+    // Utiliza la biblioteca de redimensionamiento Resizer para redimensionar la imagen seleccionada.
+    // Realiza una solicitud POST a la ruta "/api/course/upload-image" con la imagen redimensionada.
+    // Al recibir la respuesta, muestra la información en la consola y establece la imagen en el estado "image".
+    // Finalmente, actualiza el estado "values" para indicar que la carga ha finalizado.
+
+    // La función loadCourse se llama cuando se carga el componente para obtener los datos del curso.
+    // Las funciones handleChange y handleImage se utilizan para manejar los cambios en los campos de entrada y la carga de imágenes, respectivamente.
     const handleDelete = async (index) => {
         const answer = window.confirm("¿Estás seguro de que deseas eliminar?");
         if (!answer) return;
@@ -215,7 +306,30 @@ const CourseEdit = () => {
         const { data } = await axios.put(`/api/course/${slug}/${removed[0]._id}`);
         console.log("LECCIÓN ELIMINADA =>", data);
     };
+    // Definiendo una función asincrónica llamada "loadCourse".
+    // Esta función se utiliza para cargar los datos del curso desde el servidor.
+    // Realiza una solicitud GET a la ruta "/api/course/${slug}" para obtener los datos del curso.
+    // Al recibir la respuesta, se muestra en la consola para fines de depuración.
+    // Si los datos existen, se establecen en el estado "values" mediante la función setValues.
+    // Si los datos incluyen una imagen, se establece en el estado "image" mediante la función setImage.
 
+    // Definiendo una función llamada "handleChange".
+    // Esta función se utiliza para manejar los cambios en los campos de entrada del formulario.
+    // Utiliza el operador spread para crear una copia del estado "values" y actualiza el valor correspondiente según el nombre del campo de entrada.
+
+    // Definiendo una función llamada "handleImage".
+    // Esta función se utiliza para manejar la selección de una imagen para cargar.
+    // Obtiene el archivo de imagen seleccionado y lo almacena en la variable "file".
+    // Crea una URL de vista previa de la imagen utilizando la función window.URL.createObjectURL y la establece en el estado "preview".
+    // Establece el nombre del archivo en el estado "uploadButtonText".
+    // Actualiza el estado "values" para indicar que se está cargando la imagen.
+    // Utiliza la biblioteca de redimensionamiento Resizer para redimensionar la imagen seleccionada.
+    // Realiza una solicitud POST a la ruta "/api/course/upload-image" con la imagen redimensionada.
+    // Al recibir la respuesta, muestra la información en la consola y establece la imagen en el estado "image".
+    // Finalmente, actualiza el estado "values" para indicar que la carga ha finalizado.
+
+    // La función loadCourse se llama cuando se carga el componente para obtener los datos del curso.
+    // Las funciones handleChange y handleImage se utilizan para manejar los cambios en los campos de entrada y la carga de imágenes, respectivamente.
     /**
      * Funciones de actualización de las lecciones
      */
@@ -228,7 +342,30 @@ const CourseEdit = () => {
             );
             console.log("ELIMINADO ===>", res);
         }
+        // Definiendo una función asincrónica llamada "loadCourse".
+        // Esta función se utiliza para cargar los datos del curso desde el servidor.
+        // Realiza una solicitud GET a la ruta "/api/course/${slug}" para obtener los datos del curso.
+        // Al recibir la respuesta, se muestra en la consola para fines de depuración.
+        // Si los datos existen, se establecen en el estado "values" mediante la función setValues.
+        // Si los datos incluyen una imagen, se establece en el estado "image" mediante la función setImage.
 
+        // Definiendo una función llamada "handleChange".
+        // Esta función se utiliza para manejar los cambios en los campos de entrada del formulario.
+        // Utiliza el operador spread para crear una copia del estado "values" y actualiza el valor correspondiente según el nombre del campo de entrada.
+
+        // Definiendo una función llamada "handleImage".
+        // Esta función se utiliza para manejar la selección de una imagen para cargar.
+        // Obtiene el archivo de imagen seleccionado y lo almacena en la variable "file".
+        // Crea una URL de vista previa de la imagen utilizando la función window.URL.createObjectURL y la establece en el estado "preview".
+        // Establece el nombre del archivo en el estado "uploadButtonText".
+        // Actualiza el estado "values" para indicar que se está cargando la imagen.
+        // Utiliza la biblioteca de redimensionamiento Resizer para redimensionar la imagen seleccionada.
+        // Realiza una solicitud POST a la ruta "/api/course/upload-image" con la imagen redimensionada.
+        // Al recibir la respuesta, muestra la información en la consola y establece la imagen en el estado "image".
+        // Finalmente, actualiza el estado "values" para indicar que la carga ha finalizado.
+
+        // La función loadCourse se llama cuando se carga el componente para obtener los datos del curso.
+        // Las funciones handleChange y handleImage se utilizan para manejar los cambios en los campos de entrada y la carga de imágenes, respectivamente.
         const file = e.target.files[0];
         setUploadVideoButtonText(file.name);
         setUploading(true);
@@ -249,7 +386,30 @@ const CourseEdit = () => {
         setCurrent({ ...current, video: data });
         setUploading(false);
     };
+    // Definiendo una función asincrónica llamada "loadCourse".
+    // Esta función se utiliza para cargar los datos del curso desde el servidor.
+    // Realiza una solicitud GET a la ruta "/api/course/${slug}" para obtener los datos del curso.
+    // Al recibir la respuesta, se muestra en la consola para fines de depuración.
+    // Si los datos existen, se establecen en el estado "values" mediante la función setValues.
+    // Si los datos incluyen una imagen, se establece en el estado "image" mediante la función setImage.
 
+    // Definiendo una función llamada "handleChange".
+    // Esta función se utiliza para manejar los cambios en los campos de entrada del formulario.
+    // Utiliza el operador spread para crear una copia del estado "values" y actualiza el valor correspondiente según el nombre del campo de entrada.
+
+    // Definiendo una función llamada "handleImage".
+    // Esta función se utiliza para manejar la selección de una imagen para cargar.
+    // Obtiene el archivo de imagen seleccionado y lo almacena en la variable "file".
+    // Crea una URL de vista previa de la imagen utilizando la función window.URL.createObjectURL y la establece en el estado "preview".
+    // Establece el nombre del archivo en el estado "uploadButtonText".
+    // Actualiza el estado "values" para indicar que se está cargando la imagen.
+    // Utiliza la biblioteca de redimensionamiento Resizer para redimensionar la imagen seleccionada.
+    // Realiza una solicitud POST a la ruta "/api/course/upload-image" con la imagen redimensionada.
+    // Al recibir la respuesta, muestra la información en la consola y establece la imagen en el estado "image".
+    // Finalmente, actualiza el estado "values" para indicar que la carga ha finalizado.
+
+    // La función loadCourse se llama cuando se carga el componente para obtener los datos del curso.
+    // Las funciones handleChange y handleImage se utilizan para manejar los cambios en los campos de entrada y la carga de imágenes, respectivamente.
     const handleUpdateLesson = async (e) => {
         e.preventDefault();
         const { data } = await axios.put(
@@ -267,7 +427,30 @@ const CourseEdit = () => {
             toast("Lección actualizada");
         }
     };
+    // Definiendo una función asincrónica llamada "loadCourse".
+    // Esta función se utiliza para cargar los datos del curso desde el servidor.
+    // Realiza una solicitud GET a la ruta "/api/course/${slug}" para obtener los datos del curso.
+    // Al recibir la respuesta, se muestra en la consola para fines de depuración.
+    // Si los datos existen, se establecen en el estado "values" mediante la función setValues.
+    // Si los datos incluyen una imagen, se establece en el estado "image" mediante la función setImage.
 
+    // Definiendo una función llamada "handleChange".
+    // Esta función se utiliza para manejar los cambios en los campos de entrada del formulario.
+    // Utiliza el operador spread para crear una copia del estado "values" y actualiza el valor correspondiente según el nombre del campo de entrada.
+
+    // Definiendo una función llamada "handleImage".
+    // Esta función se utiliza para manejar la selección de una imagen para cargar.
+    // Obtiene el archivo de imagen seleccionado y lo almacena en la variable "file".
+    // Crea una URL de vista previa de la imagen utilizando la función window.URL.createObjectURL y la establece en el estado "preview".
+    // Establece el nombre del archivo en el estado "uploadButtonText".
+    // Actualiza el estado "values" para indicar que se está cargando la imagen.
+    // Utiliza la biblioteca de redimensionamiento Resizer para redimensionar la imagen seleccionada.
+    // Realiza una solicitud POST a la ruta "/api/course/upload-image" con la imagen redimensionada.
+    // Al recibir la respuesta, muestra la información en la consola y establece la imagen en el estado "image".
+    // Finalmente, actualiza el estado "values" para indicar que la carga ha finalizado.
+
+    // La función loadCourse se llama cuando se carga el componente para obtener los datos del curso.
+    // Las funciones handleChange y handleImage se utilizan para manejar los cambios en los campos de entrada y la carga de imágenes, respectivamente.
     return (
         <InstructorRoute>
             <h1 className="jumbotron text-center square">Actualizar Curso</h1>
@@ -339,5 +522,28 @@ const CourseEdit = () => {
         </InstructorRoute>
     );
 };
+// Definiendo una función asincrónica llamada "loadCourse".
+// Esta función se utiliza para cargar los datos del curso desde el servidor.
+// Realiza una solicitud GET a la ruta "/api/course/${slug}" para obtener los datos del curso.
+// Al recibir la respuesta, se muestra en la consola para fines de depuración.
+// Si los datos existen, se establecen en el estado "values" mediante la función setValues.
+// Si los datos incluyen una imagen, se establece en el estado "image" mediante la función setImage.
 
+// Definiendo una función llamada "handleChange".
+// Esta función se utiliza para manejar los cambios en los campos de entrada del formulario.
+// Utiliza el operador spread para crear una copia del estado "values" y actualiza el valor correspondiente según el nombre del campo de entrada.
+
+// Definiendo una función llamada "handleImage".
+// Esta función se utiliza para manejar la selección de una imagen para cargar.
+// Obtiene el archivo de imagen seleccionado y lo almacena en la variable "file".
+// Crea una URL de vista previa de la imagen utilizando la función window.URL.createObjectURL y la establece en el estado "preview".
+// Establece el nombre del archivo en el estado "uploadButtonText".
+// Actualiza el estado "values" para indicar que se está cargando la imagen.
+// Utiliza la biblioteca de redimensionamiento Resizer para redimensionar la imagen seleccionada.
+// Realiza una solicitud POST a la ruta "/api/course/upload-image" con la imagen redimensionada.
+// Al recibir la respuesta, muestra la información en la consola y establece la imagen en el estado "image".
+// Finalmente, actualiza el estado "values" para indicar que la carga ha finalizado.
+
+// La función loadCourse se llama cuando se carga el componente para obtener los datos del curso.
+// Las funciones handleChange y handleImage se utilizan para manejar los cambios en los campos de entrada y la carga de imágenes, respectivamente.
 export default CourseEdit;
