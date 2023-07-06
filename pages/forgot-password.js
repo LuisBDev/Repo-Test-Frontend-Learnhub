@@ -3,7 +3,25 @@ import { useEffect } from "react";
 
 // Importamos el componente "toast" de la librería "react-toastify"
 import { toast } from "react-toastify";
+// Definiendo la función onFinish para manejar el envío del formulario.
+// Establece el estado "loading" como verdadero para mostrar el ícono de carga.
+// Muestra una notificación informativa indicando que se está validando la información proporcionada.
+// Simula una carga de 5 segundos utilizando la función setTimeout.
+// Realiza una solicitud POST a la ruta "/api/make-instructor" con los valores del formulario.
+// Muestra la respuesta en la consola y muestra una notificación de éxito si la solicitud se realiza correctamente.
+// En caso de error, muestra el estado de error en la consola y muestra una notificación de error.
+// Establece el estado "loading" como falso para ocultar el ícono de carga.
 
+// Definiendo la función validateField para validar un campo específico del formulario.
+// Utiliza el método validateFields de la instancia del formulario para validar el campo especificado.
+
+// Definiendo la función renderConvertirInstructor para renderizar el formulario de conversión a instructor.
+// Utiliza el componente Form de Ant Design para crear un formulario.
+// Define varios campos del formulario con sus respectivas reglas de validación y elementos de entrada.
+// Muestra un botón de carga de archivo utilizando el componente Upload y el botón Button de Ant Design.
+// Utiliza el componente Select de Ant Design para crear un campo de selección de opciones.
+// Muestra un botón de envío del formulario utilizando el componente Button de Ant Design.
+// El botón muestra un ícono de carga si el estado "loading" es verdadero.
 // Definición del componente ForgotPassword
 const ForgotPassword = () => {
 
