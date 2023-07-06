@@ -3,7 +3,19 @@ import { Select, Button, Avatar, Badge } from "antd";
 
 // Desestructuración del objeto "Option" desde el módulo "Select"
 const { Option } = Select;
+// Definiendo la función handleInputChange que se ejecuta cuando se produce un cambio en el input.
+// Toma dos argumentos: el evento (e) y el campo (field).
+// Utiliza la función setValues para actualizar el estado de los valores.
+// Utiliza el operador spread (...) para copiar los valores actuales y luego sobrescribe el campo especificado con el valor del evento.
+// El evento.target.value contiene el valor actualizado del campo de entrada.
 
+// Renderizando el contenido del componente AddLessonForm.
+// Incluye un formulario con campos de entrada para el título y el contenido de la lección.
+// El valor de cada campo está vinculado al estado "values" y se actualiza utilizando la función handleInputChange.
+// El botón de carga de video está asociado a la función handleVideo para manejar la selección de video.
+// El botón de eliminación de video utiliza la función handleVideoRemove para eliminar el video seleccionado.
+// El progreso de carga del video se muestra utilizando el componente Progress.
+// El botón "Guardar" utiliza la función handleAddLesson para guardar la lección.
 const CourseCreateForm = ({
     handleSubmit, // Función para manejar la presentación del formulario
     handleImage, // Función para manejar la imagen seleccionada
@@ -26,7 +38,19 @@ const CourseCreateForm = ({
         // El contenido del elemento es el valor de "i" formateado con dos decimales y precedido por el símbolo de dólar ($)
         children.push(<Option key={i.toFixed(2)}>${i.toFixed(2)}</Option>);
     }
+    // Definiendo la función handleInputChange que se ejecuta cuando se produce un cambio en el input.
+    // Toma dos argumentos: el evento (e) y el campo (field).
+    // Utiliza la función setValues para actualizar el estado de los valores.
+    // Utiliza el operador spread (...) para copiar los valores actuales y luego sobrescribe el campo especificado con el valor del evento.
+    // El evento.target.value contiene el valor actualizado del campo de entrada.
 
+    // Renderizando el contenido del componente AddLessonForm.
+    // Incluye un formulario con campos de entrada para el título y el contenido de la lección.
+    // El valor de cada campo está vinculado al estado "values" y se actualiza utilizando la función handleInputChange.
+    // El botón de carga de video está asociado a la función handleVideo para manejar la selección de video.
+    // El botón de eliminación de video utiliza la función handleVideoRemove para eliminar el video seleccionado.
+    // El progreso de carga del video se muestra utilizando el componente Progress.
+    // El botón "Guardar" utiliza la función handleAddLesson para guardar la lección.
     return (
         <>
             {values && (
@@ -166,5 +190,17 @@ const CourseCreateForm = ({
         </>
     );
 };
+// Definiendo la función handleInputChange que se ejecuta cuando se produce un cambio en el input.
+// Toma dos argumentos: el evento (e) y el campo (field).
+// Utiliza la función setValues para actualizar el estado de los valores.
+// Utiliza el operador spread (...) para copiar los valores actuales y luego sobrescribe el campo especificado con el valor del evento.
+// El evento.target.value contiene el valor actualizado del campo de entrada.
 
+// Renderizando el contenido del componente AddLessonForm.
+// Incluye un formulario con campos de entrada para el título y el contenido de la lección.
+// El valor de cada campo está vinculado al estado "values" y se actualiza utilizando la función handleInputChange.
+// El botón de carga de video está asociado a la función handleVideo para manejar la selección de video.
+// El botón de eliminación de video utiliza la función handleVideoRemove para eliminar el video seleccionado.
+// El progreso de carga del video se muestra utilizando el componente Progress.
+// El botón "Guardar" utiliza la función handleAddLesson para guardar la lección.
 export default CourseCreateForm;
