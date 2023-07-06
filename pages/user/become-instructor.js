@@ -35,7 +35,55 @@ const BecomeInstructor = () => {
     const validateField = (fieldName) => {
         form.validateFields([fieldName]);
     };
+    // Importando los módulos necesarios desde las bibliotecas y archivos de origen.
 
+    // Importando los hooks useState y useContext desde la biblioteca de React.
+
+    // Importando el contexto desde el archivo "../../context" para acceder al estado global de la aplicación.
+
+    // Importando los componentes Button, Form, Input, Select y Upload desde la biblioteca Ant Design.
+
+    // Importando los iconos UserSwitchOutlined, LoadingOutlined y UploadOutlined desde la biblioteca Ant Design.
+
+    // Importando el módulo axios para realizar solicitudes HTTP.
+
+    // Importando la función toast desde la biblioteca react-toastify para mostrar notificaciones.
+
+    // Desestructurando el objeto Option de la biblioteca Select.
+
+    // Definiendo el componente BecomeInstructor.
+
+    // Definiendo el estado inicial del componente mediante el hook useState.
+    // Se definen las variables de estado "loading" y "form" utilizando el hook useState y se inicializan con los valores iniciales correspondientes.
+
+    // Accediendo al estado global de la aplicación utilizando el hook useContext y desestructurando el estado "user" desde el objeto "state" del contexto.
+
+    // Definiendo la función onFinish para manejar el envío del formulario.
+    // Establece el estado "loading" como verdadero para mostrar el ícono de carga.
+    // Muestra una notificación informativa indicando que se está validando la información proporcionada.
+    // Simula una carga de 5 segundos utilizando la función setTimeout.
+    // Realiza una solicitud POST a la ruta "/api/make-instructor" con los valores del formulario.
+    // Muestra la respuesta en la consola y muestra una notificación de éxito si la solicitud se realiza correctamente.
+    // En caso de error, muestra el estado de error en la consola y muestra una notificación de error.
+    // Establece el estado "loading" como falso para ocultar el ícono de carga.
+
+    // Definiendo la función validateField para validar un campo específico del formulario.
+    // Utiliza el método validateFields de la instancia del formulario para validar el campo especificado.
+
+    // Definiendo la función renderConvertirInstructor para renderizar el formulario de conversión a instructor.
+    // Utiliza el componente Form de Ant Design para crear un formulario.
+    // Define varios campos del formulario con sus respectivas reglas de validación y elementos de entrada.
+    // Muestra un botón de carga de archivo utilizando el componente Upload y el botón Button de Ant Design.
+    // Utiliza el componente Select de Ant Design para crear un campo de selección de opciones.
+    // Muestra un botón de envío del formulario utilizando el componente Button de Ant Design.
+    // El botón muestra un ícono de carga si el estado "loading" es verdadero.
+
+    // Renderizando el contenido del componente BecomeInstructor.
+    // Muestra un encabezado jumbotron y un mensaje introductorio.
+    // Si el usuario ya es un instructor, muestra un mensaje indicando que ya es un instructor.
+    // Si no es un instructor, muestra el formulario de conversión a instructor utilizando la función renderConvertirInstructor.
+
+    // Finalmente, se exporta el componente BecomeInstructor.
     const renderConvertirInstructor = () => (
         <Form form={form} name="convertirInstructorForm" onFinish={onFinish} layout="vertical">
             <Form.Item
@@ -161,6 +209,39 @@ const BecomeInstructor = () => {
         </Form>
     );
 
+
+    // Importando la función toast desde la biblioteca react-toastify para mostrar notificaciones.
+
+    // Desestructurando el objeto Option de la biblioteca Select.
+
+    // Definiendo el componente BecomeInstructor.
+
+    // Definiendo el estado inicial del componente mediante el hook useState.
+    // Se definen las variables de estado "loading" y "form" utilizando el hook useState y se inicializan con los valores iniciales correspondientes.
+
+    // Accediendo al estado global de la aplicación utilizando el hook useContext y desestructurando el estado "user" desde el objeto "state" del contexto.
+
+    // Definiendo la función onFinish para manejar el envío del formulario.
+    // Establece el estado "loading" como verdadero para mostrar el ícono de carga.
+    // Muestra una notificación informativa indicando que se está validando la información proporcionada.
+    // Simula una carga de 5 segundos utilizando la función setTimeout.
+    // Realiza una solicitud POST a la ruta "/api/make-instructor" con los valores del formulario.
+    // Muestra la respuesta en la consola y muestra una notificación de éxito si la solicitud se realiza correctamente.
+    // En caso de error, muestra el estado de error en la consola y muestra una notificación de error.
+    // Establece el estado "loading" como falso para ocultar el ícono de carga.
+
+    // Definiendo la función validateField para validar un campo específico del formulario.
+    // Utiliza el método validateFields de la instancia del formulario para validar el campo especificado.
+
+    // Definiendo la función renderConvertirInstructor para renderizar el formulario de conversión a instructor.
+    // Utiliza el componente Form de Ant Design para crear un formulario.
+    // Define varios campos del formulario con sus respectivas reglas de validación y elementos de entrada.
+    // Muestra un botón de carga de archivo utilizando el componente Upload y el botón Button de Ant Design.
+    // Utiliza el componente Select de Ant Design para crear un campo de selección de opciones.
+    // Muestra un botón de envío del formulario utilizando el componente Button de Ant Design.
+    // El botón muestra un ícono de carga si el estado "loading" es verdadero.
+
+
     return (
         <>
             <h1 className="jumbotron text-center square">Conviértete en instructor</h1>
@@ -195,4 +276,22 @@ const BecomeInstructor = () => {
     );
 };
 
+
+// Definiendo la función validateField para validar un campo específico del formulario.
+// Utiliza el método validateFields de la instancia del formulario para validar el campo especificado.
+
+// Definiendo la función renderConvertirInstructor para renderizar el formulario de conversión a instructor.
+// Utiliza el componente Form de Ant Design para crear un formulario.
+// Define varios campos del formulario con sus respectivas reglas de validación y elementos de entrada.
+// Muestra un botón de carga de archivo utilizando el componente Upload y el botón Button de Ant Design.
+// Utiliza el componente Select de Ant Design para crear un campo de selección de opciones.
+// Muestra un botón de envío del formulario utilizando el componente Button de Ant Design.
+// El botón muestra un ícono de carga si el estado "loading" es verdadero.
+
+// Renderizando el contenido del componente BecomeInstructor.
+// Muestra un encabezado jumbotron y un mensaje introductorio.
+// Si el usuario ya es un instructor, muestra un mensaje indicando que ya es un instructor.
+// Si no es un instructor, muestra el formulario de conversión a instructor utilizando la función renderConvertirInstructor.
+
+// Finalmente, se exporta el componente BecomeInstructor.
 export default BecomeInstructor;

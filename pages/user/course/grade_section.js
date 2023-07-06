@@ -4,6 +4,26 @@ const GradeSection = ({ currentGrade = 0 }) => {
 
   const fillPercentage = currentGrade >= 100 ? 100 : currentGrade;
 
+  // Obtiene el elemento SVG del DOM utilizando el selector de clase '.donut-svg'.
+  // Si el elemento existe, obtiene el ancho del contenedor padre y lo almacena en la variable "containerWidth".
+  // Luego, calcula el ancho deseado como el mínimo entre "containerWidth" y 200 (ajustar los valores según CSS).
+  // Finalmente, establece el atributo 'width' del elemento SVG con el valor del ancho deseado en píxeles.
+
+  // Definiendo el componente "CompletionSection".
+  // Recibe una prop "completionPercentage" con un valor predeterminado de 0.
+  // Dentro del componente, se definen las variables "completeDashArray" e "incompleteDashArray" para los valores de los atributos "strokeDasharray" en el elemento SVG.
+
+  // Utilizando el hook useEffect para ejecutar ciertas operaciones después de que el componente se haya montado.
+  // Llama a la función "adjustSVGSize" para ajustar el tamaño del SVG cuando el componente se monta.
+  // También agrega un event listener para escuchar el evento de redimensionamiento de la ventana y ejecutar la función "adjustSVGSize" en cada redimensionamiento.
+  // Al desmontar el componente, se remueve el event listener para evitar fugas de memoria.
+
+  // Renderizando el contenido del componente.
+  // Se muestra un encabezado, un párrafo de explicación y el porcentaje de finalización del curso.
+  // También se muestra un SVG que representa gráficamente el porcentaje de finalización del curso.
+  // El SVG tiene varios elementos, como un círculo, texto y segmentos de gráfico de donut.
+
+  // Finalmente, se exporta el componente "CompletionSection".
   return (
     <section className="text-dark-700 my-4 rounded raised-card">
       <div className="" aria-hidden="false">
@@ -58,5 +78,23 @@ const GradeSection = ({ currentGrade = 0 }) => {
     </section>
   );
 };
+
+// Si el elemento existe, obtiene el ancho del contenedor padre y lo almacena en la variable "containerWidth".
+// Luego, calcula el ancho deseado como el mínimo entre "containerWidth" y 200 (ajustar los valores según CSS).
+// Finalmente, establece el atributo 'width' del elemento SVG con el valor del ancho deseado en píxeles.
+
+// Definiendo el componente "CompletionSection".
+// Recibe una prop "completionPercentage" con un valor predeterminado de 0.
+// Dentro del componente, se definen las variables "completeDashArray" e "incompleteDashArray" para los valores de los atributos "strokeDasharray" en el elemento SVG.
+
+// Utilizando el hook useEffect para ejecutar ciertas operaciones después de que el componente se haya montado.
+// Llama a la función "adjustSVGSize" para ajustar el tamaño del SVG cuando el componente se monta.
+// También agrega un event listener para escuchar el evento de redimensionamiento de la ventana y ejecutar la función "adjustSVGSize" en cada redimensionamiento.
+// Al desmontar el componente, se remueve el event listener para evitar fugas de memoria.
+
+// Renderizando el contenido del componente.
+// Se muestra un encabezado, un párrafo de explicación y el porcentaje de finalización del curso.
+// También se muestra un SVG que representa gráficamente el porcentaje de finalización del curso.
+// El SVG tiene varios elementos, como un círculo, texto y segmentos de gráfico de donut.
 
 export default GradeSection;
