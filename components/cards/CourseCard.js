@@ -16,7 +16,17 @@ const CourseCard = ({ course }) => {
     // En caso contrario, se asigna una ubicación predeterminada ("/course.png")
     const imageUrl = image ? image.Location : "/course.png";
 
+    // Definiendo la función validateField para validar un campo específico del formulario.
+    // Utiliza el método validateFields de la instancia del formulario para validar el campo especificado.
 
+    // Definiendo la función renderConvertirInstructor para renderizar el formulario de conversión a instructor.
+    // Utiliza el componente Form de Ant Design para crear un formulario.
+    // Define varios campos del formulario con sus respectivas reglas de validación y elementos de entrada.
+    // Muestra un botón de carga de archivo utilizando el componente Upload y el botón Button de Ant Design.
+    // Utiliza el componente Select de Ant Design para crear un campo de selección de opciones.
+    // Muestra un botón de envío del formulario utilizando el componente Button de Ant Design.
+    // El botón muestra un ícono de carga si el estado "loading" es verdadero.
+    // Defining an effect hook that runs when the user or course changes.
     return (
         <Link href={`/course/${slug}`}>
             <a>
@@ -46,5 +56,15 @@ const CourseCard = ({ course }) => {
         </Link>
     );
 };
+// Definiendo la función validateField para validar un campo específico del formulario.
+// Utiliza el método validateFields de la instancia del formulario para validar el campo especificado.
 
+// Definiendo la función renderConvertirInstructor para renderizar el formulario de conversión a instructor.
+// Utiliza el componente Form de Ant Design para crear un formulario.
+// Define varios campos del formulario con sus respectivas reglas de validación y elementos de entrada.
+// Muestra un botón de carga de archivo utilizando el componente Upload y el botón Button de Ant Design.
+// Utiliza el componente Select de Ant Design para crear un campo de selección de opciones.
+// Muestra un botón de envío del formulario utilizando el componente Button de Ant Design.
+// El botón muestra un ícono de carga si el estado "loading" es verdadero.
+// Defining an effect hook that runs when the user or course changes.
 export default CourseCard;
