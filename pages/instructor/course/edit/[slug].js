@@ -15,6 +15,29 @@ const { Item } = List;
 const CourseEdit = () => {
     // estado
     const [values, setValues] = useState({
+        // Definiendo el estado inicial del componente usando el hook useState.
+        // El estado contiene valores para el nombre, descripción, precio, estado de carga, etc.
+
+        // Utilizando el hook useState para crear una variable de estado llamada "values".
+        // "values" se inicializa con un objeto que contiene varias propiedades como name, description, price, etc.
+
+        // Estableciendo los valores iniciales para el estado.
+        // El nombre se inicializa como una cadena vacía, la descripción como una cadena vacía, el precio como "9.99", etc.
+
+        // Definiendo el estado de subida como falso.
+        // Esto indica que no se está realizando una subida de datos en este momento.
+
+        // Estableciendo la propiedad "paid" como verdadera.
+        // Indica que el curso tiene un costo y debe ser pagado.
+
+        // Estableciendo la categoría como una cadena vacía.
+        // La categoría del curso aún no se ha seleccionado.
+
+        // Definiendo el estado de carga como falso.
+        // Indica que no se está cargando ningún dato en este momento.
+
+        // El estado de "lessons" se inicializa como un arreglo vacío.
+        // Esto indica que no hay lecciones asociadas al curso en este momento.
         name: "",
         description: "",
         price: "9.99",
@@ -40,6 +63,35 @@ const CourseEdit = () => {
     // router
     const router = useRouter();
     const { slug } = router.query;
+
+    // Utilizando el hook useState para crear una variable de estado llamada "image".
+    // "image" se inicializa como un objeto vacío para almacenar información sobre la imagen seleccionada.
+
+    // Utilizando el hook useState para crear una variable de estado llamada "preview".
+    // "preview" se inicializa como una cadena vacía para almacenar la URL de vista previa de la imagen.
+
+    // Utilizando el hook useState para crear una variable de estado llamada "uploadButtonText".
+    // "uploadButtonText" se inicializa como "Subir imagen" para el texto del botón de carga de imagen.
+
+    // Definiendo el estado de "visible" como falso.
+    // Indica si la ventana modal para actualizar las lecciones es visible o no.
+
+    // Utilizando el hook useState para crear una variable de estado llamada "current".
+    // "current" se inicializa como un objeto vacío para almacenar información sobre la lección actual.
+
+    // Utilizando el hook useState para crear una variable de estado llamada "uploadVideoButtonText".
+    // "uploadVideoButtonText" se inicializa como "Subir video" para el texto del botón de carga de video.
+
+    // Utilizando el hook useState para crear una variable de estado llamada "progress".
+    // "progress" se inicializa como 0 para representar el progreso de carga del video.
+
+    // Definiendo el estado de "uploading" como falso.
+    // Indica si se está realizando una carga de video en este momento.
+
+    // Accediendo al enrutador de Next.js mediante el hook useRouter.
+    // Almacenando la ruta actual en la variable "slug" mediante el objeto "router".
+
+    // El enrutador se utiliza para obtener información sobre la ruta actual y gestionar la navegación entre páginas.
 
     useEffect(() => {
         loadCourse();
@@ -78,6 +130,30 @@ const CourseEdit = () => {
             }
         });
     };
+    // Definiendo una función asincrónica llamada "loadCourse".
+    // Esta función se utiliza para cargar los datos del curso desde el servidor.
+    // Realiza una solicitud GET a la ruta "/api/course/${slug}" para obtener los datos del curso.
+    // Al recibir la respuesta, se muestra en la consola para fines de depuración.
+    // Si los datos existen, se establecen en el estado "values" mediante la función setValues.
+    // Si los datos incluyen una imagen, se establece en el estado "image" mediante la función setImage.
+
+    // Definiendo una función llamada "handleChange".
+    // Esta función se utiliza para manejar los cambios en los campos de entrada del formulario.
+    // Utiliza el operador spread para crear una copia del estado "values" y actualiza el valor correspondiente según el nombre del campo de entrada.
+
+    // Definiendo una función llamada "handleImage".
+    // Esta función se utiliza para manejar la selección de una imagen para cargar.
+    // Obtiene el archivo de imagen seleccionado y lo almacena en la variable "file".
+    // Crea una URL de vista previa de la imagen utilizando la función window.URL.createObjectURL y la establece en el estado "preview".
+    // Establece el nombre del archivo en el estado "uploadButtonText".
+    // Actualiza el estado "values" para indicar que se está cargando la imagen.
+    // Utiliza la biblioteca de redimensionamiento Resizer para redimensionar la imagen seleccionada.
+    // Realiza una solicitud POST a la ruta "/api/course/upload-image" con la imagen redimensionada.
+    // Al recibir la respuesta, muestra la información en la consola y establece la imagen en el estado "image".
+    // Finalmente, actualiza el estado "values" para indicar que la carga ha finalizado.
+
+    // La función loadCourse se llama cuando se carga el componente para obtener los datos del curso.
+    // Las funciones handleChange y handleImage se utilizan para manejar los cambios en los campos de entrada y la carga de imágenes, respectivamente.
 
     const handleImageRemove = async () => {
         try {
