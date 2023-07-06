@@ -1,13 +1,12 @@
 .square {
-    border-radius: 0px;
-  }
-  
-.jumbotron {
-    background-image: linear-gradient(to right, #007bff, #000);
-    color: #fff;
-  }
+  border-radius: 0px; /* Establece el radio de borde a 0 para obtener una apariencia cuadrada */
+}
 
-.pointer
-{
-    cursor: pointer;
+.jumbotron {
+  background-image: linear-gradient(to right, #007bff, #000); /* Establece una imagen de fondo como un gradiente lineal de color azul claro a negro, que se extiende de izquierda a derecha */
+  color: #fff; /* Establece el color del texto en blanco */
+}
+
+.pointer {
+  cursor: pointer; /* Establece el cursor del ratón como un puntero */
 }

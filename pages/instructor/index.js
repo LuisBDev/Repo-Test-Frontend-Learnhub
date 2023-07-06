@@ -1,11 +1,12 @@
-import { useContext, useEffect, useState } from "react";
-import axios from "axios";
-import InstructorRoute from "../../components/routes/InstructorRoute";
-import { Avatar, Tooltip } from "antd";
-import Link from "next/link";
-import { CheckCircleOutlined, CloseCircleOutlined } from "@ant-design/icons";
-import { Context } from "../../context";
-import { toast } from "react-toastify";
+import { useContext, useEffect, useState } from "react"; // Importación de los hooks useContext, useEffect y useState desde React
+import axios from "axios"; // Importación de Axios para realizar peticiones HTTP
+import InstructorRoute from "../../components/routes/InstructorRoute"; // Importación de un componente de ruta para instructores
+import { Avatar, Tooltip } from "antd"; // Importación de los componentes Avatar y Tooltip desde Ant Design
+import Link from "next/link"; // Importación del componente Link desde Next.js
+import { CheckCircleOutlined, CloseCircleOutlined } from "@ant-design/icons"; // Importación de los iconos CheckCircleOutlined y CloseCircleOutlined desde Ant Design
+import { Context } from "../../context"; // Importación del contexto de la aplicación
+import { toast } from "react-toastify"; // Importación de la librería de notificaciones toast
+
 
 const InstructorIndex = () => {
     const { state: { user } } = useContext(Context);
