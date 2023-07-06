@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
-import axios from "axios";
-import { toast } from "react-toastify";
-import { SyncOutlined } from "@ant-design/icons";
-import Link from "next/link";
-import { Context } from "../context";
-import { useRouter } from "next/router";
+import React, { useState, useEffect, useContext } from "react"; // Importación de módulos de React
+import axios from "axios"; // Importación del módulo axios para hacer solicitudes HTTP
+import { toast } from "react-toastify"; // Importación del módulo toast de react-toastify para mostrar notificaciones
+import { SyncOutlined } from "@ant-design/icons"; // Importación del ícono SyncOutlined de ant-design/icons
+import Link from "next/link"; // Importación del componente Link de la biblioteca next/link
+import { Context } from "../context"; // Importación del contexto desde "../context"
+import { useRouter } from "next/router"; // Importación del hook useRouter de la biblioteca next/router
+
 
 // Componente reutilizable para los elementos de formulario
 const FormInput = ({ type, value, onChange, placeholder, required }) => (
@@ -19,17 +20,18 @@ const FormInput = ({ type, value, onChange, placeholder, required }) => (
 );
 
 const Register = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [name, setName] = useState(""); // Estado para almacenar el nombre
+  const [email, setEmail] = useState(""); // Estado para almacenar el correo electrónico
+  const [password, setPassword] = useState(""); // Estado para almacenar la contraseña
+  const [loading, setLoading] = useState(false); // Estado para indicar si se está cargando algo o no
 
-  const { state: { user } } = useContext(Context);
-  const router = useRouter();
+  const { state: { user } } = useContext(Context); // Obtener el estado de usuario del contexto
+  const router = useRouter(); // Obtener el enrutador de la página
 
   useEffect(() => {
-    if (user !== null) router.push("/");
+    if (user !== null) router.push("/"); // Redirigir al usuario a la página principal si ya ha iniciado sesión
   }, [user]);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();

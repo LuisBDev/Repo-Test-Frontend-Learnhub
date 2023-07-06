@@ -1,48 +1,48 @@
-import React, { useState, useEffect } from "react";
-import { useRouter } from "next/router";
-import InstructorRoute from "../../../../components/routes/InstructorRoute";
-import axios from "axios";
-import { Avatar, Tooltip, Button, Modal, List } from "antd";
+import React, { useState, useEffect } from "react"; // Importamos los módulos 'React', 'useState' y 'useEffect' desde la biblioteca 'react'
+import { useRouter } from "next/router"; // Importamos el módulo 'useRouter' desde la biblioteca 'next/router'
+import InstructorRoute from "../../../../components/routes/InstructorRoute"; // Importamos el componente 'InstructorRoute' desde la ruta relativa "../../../../components/routes/InstructorRoute"
+import axios from "axios"; // Importamos el módulo 'axios' desde la biblioteca 'axios'
+import { Avatar, Tooltip, Button, Modal, List } from "antd"; // Importamos los módulos 'Avatar', 'Tooltip', 'Button', 'Modal' y 'List' desde la biblioteca 'antd'
 import {
     EditOutlined,
     CheckOutlined,
     UploadOutlined,
     QuestionOutlined,
     CloseOutlined,
-} from "@ant-design/icons";
-import ReactMarkdown from "react-markdown";
-import AddLessonForm from "../../../../components/forms/AddLessonForm";
-import AddQuestionForm from "../../../../components/forms/AddQuestionForm";
-import { toast } from "react-toastify";
+} from "@ant-design/icons"; // Importamos los íconos 'EditOutlined', 'CheckOutlined', 'UploadOutlined', 'QuestionOutlined' y 'CloseOutlined' desde la biblioteca '@ant-design/icons'
+import ReactMarkdown from "react-markdown"; // Importamos el módulo 'ReactMarkdown' desde la biblioteca 'react-markdown'
+import AddLessonForm from "../../../../components/forms/AddLessonForm"; // Importamos el componente 'AddLessonForm' desde la ruta relativa "../../../../components/forms/AddLessonForm"
+import AddQuestionForm from "../../../../components/forms/AddQuestionForm"; // Importamos el componente 'AddQuestionForm' desde la ruta relativa "../../../../components/forms/AddQuestionForm"
+import { toast } from "react-toastify"; // Importamos el módulo 'toast' desde la biblioteca 'react-toastify'
+
 
 const CourseView = () => {
-    const [course, setCourse] = useState({});
-    const [visible, setVisible] = useState(false);
-    const [visibleQuestion, setVisibleQuestion] = useState(false);
+    const [course, setCourse] = useState({}); // Estado para almacenar el curso
+    const [visible, setVisible] = useState(false); // Estado para controlar la visibilidad
+    const [visibleQuestion, setVisibleQuestion] = useState(false); // Estado para controlar la visibilidad de la pregunta
     const [values, setValues] = useState({
         title: "",
         content: "",
         video: {},
-    });
+    }); // Estado para almacenar los valores del formulario, incluyendo título, contenido y video
 
     const [valuesQuestion, setValuesQuestion] = useState({
         title: "",
         content: "",
         answer: "", // Nueva propiedad para almacenar la respuesta correcta
         options: ["", "", "", ""] // Nueva propiedad para almacenar las opciones de respuesta
-    });
+    }); // Estado para almacenar los valores de la pregunta, incluyendo título, contenido, respuesta y opciones
 
+    const [uploading, setUploading] = useState(false); // Estado para controlar la subida del video
 
-    const [uploading, setUploading] = useState(false);
+    const [uploadingQuestion] = useState(false); // Estado para controlar la subida de la pregunta
 
-    const [uploadingQuestion] = useState(false);
+    const [uploadButtonText, setUploadButtonText] = useState("Subir Video"); // Estado para almacenar el texto del botón de subida
+    const [progress, setProgress] = useState(0); // Estado para almacenar el progreso de subida
 
+    const router = useRouter(); // Uso del enrutador para obtener información de la URL
+    const { slug } = router.query; // Obtener el slug del curso de la URL
 
-    const [uploadButtonText, setUploadButtonText] = useState("Subir Video");
-    const [progress, setProgress] = useState(0);
-
-    const router = useRouter();
-    const { slug } = router.query;
 
     useEffect(() => {
         loadCourse();

@@ -1,11 +1,15 @@
+// Importamos los componentes 'List' y 'Avatar' de la biblioteca 'antd'
 import { List, Avatar } from "antd";
+
+// Desestructuramos el componente 'Item' del componente 'List'
 const { Item } = List;
 
+
 const SingleCourseLessons = ({
-  lessons,
-  setPreview,
-  showModal,
-  setShowModal,
+  lessons, // Array que contiene las lecciones del curso
+  setPreview, // Función para establecer una vista previa de la lección
+  showModal, // Función para mostrar el modal
+  setShowModal, // Función para establecer la visibilidad del modal
 }) => {
   return (
     <div className="container">
@@ -25,17 +29,22 @@ const SingleCourseLessons = ({
                   title={item.title}
                 />
                 {/* Vista previa */}
-                {item.video && item.video !== null && item.free_preview && (
-                  <span
-                    className="text-primary pointer"
-                    onClick={() => {
-                      setPreview(item.video.Location);
-                      setShowModal(!showModal);
-                    }}
-                  >
-                    Vista previa
-                  </span>
-                )}
+                {
+                  // Comprueba si hay un objeto "video" en el objeto "item" y si no es nulo
+                  item.video && item.video !== null && item.free_preview && (
+                    <span
+                      className="text-primary pointer"
+                      onClick={() => {
+                        // Establece la variable de estado "preview" con la ubicación del video en "item.video.Location"
+                        setPreview(item.video.Location);
+                        // Cambia el valor de la variable de estado "showModal" a su opuesto actual
+                        setShowModal(!showModal);
+                      }}
+                    >
+                      Vista previa
+                    </span>
+                  )
+                }
               </Item>
             )}
           />

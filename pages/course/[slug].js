@@ -1,25 +1,29 @@
-import { useState, useEffect, useContext } from "react";
-import axios from "axios";
-import { useRouter } from "next/router";
-import SingleCourseJumbotron from "../../components/cards/SingleCourseJumbotron";
-import PreviewModal from "../../components/modal/PreviewModal";
-import SingleCourseLessons from "../../components/cards/SingleCourseLessons";
-import { Context } from "../../context";
-import { toast } from "react-toastify";
+import { useState, useEffect, useContext } from "react"; // Importación de los hooks useState, useEffect y useContext desde React
+import axios from "axios"; // Importación del módulo axios para hacer peticiones HTTP
+import { useRouter } from "next/router"; // Importación del hook useRouter de Next.js para acceder al enrutador
+import SingleCourseJumbotron from "../../components/cards/SingleCourseJumbotron"; // Importación del componente SingleCourseJumbotron desde el directorio de componentes
+import PreviewModal from "../../components/modal/PreviewModal"; // Importación del componente PreviewModal desde el directorio de componentes
+import SingleCourseLessons from "../../components/cards/SingleCourseLessons"; // Importación del componente SingleCourseLessons desde el directorio de componentes
+import { Context } from "../../context"; // Importación del contexto desde el directorio context
+import { toast } from "react-toastify"; // Importación de la función toast de la librería react-toastify
+
 
 const SingleCourse = ({ course }) => {
-  const [showModal, setShowModal] = useState(false);
-  const [preview, setPreview] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [enrolled, setEnrolled] = useState({});
-  const [showPaymentForm, setShowPaymentForm] = useState(false);
-  const [cardNumber, setCardNumber] = useState("");
-  const [expiryMonth, setExpiryMonth] = useState("");
-  const [expiryYear, setExpiryYear] = useState("");
-  const [cvv, setCVV] = useState("");
-  const currentYear = new Date().getFullYear();
+  // Definir los estados iniciales utilizando el hook useState
+  const [showModal, setShowModal] = useState(false); // Estado para controlar la visualización del modal
+  const [preview, setPreview] = useState(""); // Estado para almacenar una vista previa
+  const [loading, setLoading] = useState(false); // Estado para controlar el estado de carga
+  const [enrolled, setEnrolled] = useState({}); // Estado para almacenar datos de inscripción
+  const [showPaymentForm, setShowPaymentForm] = useState(false); // Estado para controlar la visualización del formulario de pago
+  const [cardNumber, setCardNumber] = useState(""); // Estado para almacenar el número de tarjeta
+  const [expiryMonth, setExpiryMonth] = useState(""); // Estado para almacenar el mes de vencimiento
+  const [expiryYear, setExpiryYear] = useState(""); // Estado para almacenar el año de vencimiento
+  const [cvv, setCVV] = useState(""); // Estado para almacenar el CVV
+  const currentYear = new Date().getFullYear(); // Obtener el año actual
 
+  // Obtener el estado del usuario desde el contexto
   const { state: { user } } = useContext(Context);
+  // Obtener el enrutador de Next.js
   const router = useRouter();
 
   useEffect(() => {
